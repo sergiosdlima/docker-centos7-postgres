@@ -20,7 +20,7 @@ RUN localedef -i pt_BR -f UTF-8 pt_BR.UTF-8
 RUN su -c - postgres '/usr/pgsql-9.6/bin/initdb -E UTF8 --locale=pt_BR.UTF-8 --username=postgres -D /var/lib/pgsql/data'
 
 # open up tcp access for all
-RUN echo "host all all all md5" > /var/lib/pgsql/data/pg_hba.conf
+RUN echo "host all all all trust" > /var/lib/pgsql/data/pg_hba.conf
 # needed to createuser below
 RUN echo "local all postgres trust" >> /var/lib/pgsql/data/pg_hba.conf
 
